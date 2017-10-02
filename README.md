@@ -6,6 +6,8 @@ Collection of useful python snippets
 [f(x) for x in xs]
 [f(x) for x in xs if is_g(x)]
 [f(x) for xs in xss for x in xs]
+
+[f(x, y) for (x, y) in zip(xs, ys)]
 ```
 
 # Path
