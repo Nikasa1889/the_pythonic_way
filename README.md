@@ -42,3 +42,22 @@ r = requests.delete('http://httpbin.org/delete')
 r = requests.head('http://httpbin.org/get')
 r = requests.options('http://httpbin.org/get')
 ```
+# Conda environment management
+How to update/create a conda environment and activate it
+```bash
+conda env update --file conda_environment.yml
+activate ProjectChangeTheWorld
+```
+Example of how to define an environment for conda:
+```yaml
+name: ProjectChangeTheWorld
+dependencies:
+  - python = 2.7.13
+  - pip:
+    - Flask>=0.12.2
+    - flask-restplus>=0.10.1
+    - PyYAML>=3.12
+    - requests>=2.18.4
+    - pyOpenSSL>=17.3.0
+    - cryptography==1.9
+```
