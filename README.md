@@ -8,8 +8,15 @@ Collection of useful python snippets
 [f(x) for xs in xss for x in xs]
 
 [f(x, y) for (x, y) in zip(xs, ys)]
-```
 
+#sort unique elements of a list
+sorted(list(set(xs)))
+```
+# Dictionary comprehension
+```python
+{x: x for x in xs}
+for key, value in dict.iteritems(): #Looping through key and value
+```
 # Path
 ```python
 # Change working directory to the script directory, so that open file will work with relative path
