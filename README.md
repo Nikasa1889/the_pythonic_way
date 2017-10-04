@@ -208,6 +208,8 @@ json, yaml
 ```
 #### Path operations
 ```python
+# Join paths
+os.path.join('path/the/dir','subdir/inside')
 # Change working directory to the script directory, so that open file will work with relative path
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
