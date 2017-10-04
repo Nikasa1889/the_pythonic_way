@@ -11,7 +11,7 @@
   - [Conda environment management](#conda-environment-management) ([`conda`](https://conda.io/docs/))
 - [Data Structures](#data-structures)
   - [List and List comprehension](#list-and-list-comprehension)
-  - [Dictionary and Dictionary comprehension](#dictionary-and-dictionary-comprehension) ([bunch](https://pypi.python.org/pypi/bunch))
+  - [Dictionary and Dictionary comprehension](#dictionary-and-dictionary-comprehension) ([`bunch`](https://pypi.python.org/pypi/bunch))
   - [String](#string)
   - [Tupple](#tupple)
   - [Enumeration](#enumeration) ([`enum34`](https://pypi.python.org/pypi/enum34))
