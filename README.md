@@ -1,7 +1,8 @@
 # PythonSnippets
 Collection of useful python snippets
 
-# List comprehension
+## Data Structures
+#### List comprehension
 ```python
 [f(x) for x in xs]
 [f(x) for x in xs if is_g(x)]
@@ -12,7 +13,7 @@ Collection of useful python snippets
 #sort unique elements of a list
 sorted(list(set(xs)))
 ```
-# Dictionary comprehension
+#### Dictionary comprehension
 ```python
 {x: x for x in xs} #create dict from list
 [(k,dct[k]) for k in dct ] #create list of tupple from dict
@@ -23,14 +24,19 @@ b = Bunch()
 b.hello = 'world'
 b['hello'] += "!"
 ```
-# Path
+## IO operations
+#### Serialize, Deserialize
+```python
+json, yaml
+```
+#### Path
 ```python
 # Change working directory to the script directory, so that open file will work with relative path
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
 ```
-# Pretty Print
+#### Pretty Print
 ```python
 #Pretty print for tabular data, use tabulate
 from tabulate import tabulate
@@ -43,20 +49,21 @@ cprint('Hello, World!', 'green', 'on_red')
 print_red_on_cyan = lambda x: cprint(x, 'red', 'on_cyan')
 print_red_on_cyan('Hello, World!')
 ```
-# Process
+## Processes and Parallel
+#### Process
 ```python
 #Use setproctitle to set title for python process, useful when using ps to know which process to be killed.
 import setproctitle
 setproctitle(title)
 getproctitle() #Return current process title
 ```
-# Jupyter
+## Jupyter
 ```python
 !%matplotlib inline
 !%config IPCompleter.greedy=True  #Press Tab to get autocomplete
 ```
-
-# Consuming REST API
+## Networking
+#### Consuming REST API
 ```
 import requests
 params = {'param_1': 1, 'param_2': 2}
@@ -67,7 +74,12 @@ r = requests.delete('http://httpbin.org/delete')
 r = requests.head('http://httpbin.org/get')
 r = requests.options('http://httpbin.org/get')
 ```
-# Conda environment management
+
+## Environement Management
+#### Pip requirements.txt
+```bash
+```
+#### Conda environment management
 How to update/create a conda environment and activate it
 ```bash
 conda env update --file conda_environment.yml
