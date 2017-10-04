@@ -24,6 +24,15 @@ b = Bunch()
 b.hello = 'world'
 b['hello'] += "!"
 ```
+#### Enum
+```python
+#Use enum34
+```
+
+#### Dataframe and Matrix
+```python
+Use pandas and numpy
+```
 ## IO operations
 #### Serialize, Deserialize
 ```python
