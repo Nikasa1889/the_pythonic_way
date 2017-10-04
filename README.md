@@ -14,8 +14,13 @@ sorted(list(set(xs)))
 ```
 # Dictionary comprehension
 ```python
-{x: x for x in xs}
+{x: x for x in xs} #create dict from list
 for key, value in dict.iteritems(): #Looping through key and value
+#Should use bunch for dict with attribute-style access. JSON and YAML-friendly
+import bunch
+b = Bunch()
+b.hello = 'world'
+b['hello'] += "!"
 ```
 # Path
 ```python
