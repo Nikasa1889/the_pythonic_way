@@ -3,14 +3,15 @@
 
 #Table of Content:
 - [Coding Styles](#coding-styles)
-  - Naming Conventions
+  - [Naming Conventions](#naming-conventions)
 - [Data Structures](#data-structures)
   - [List and List comprehension](#list-and-list-comprehension)
   - [Dictionary and Dictionary comprehension](#dictionary-and-dictionary-comprehension)
   - [String](#string)
+  - [Tupple](#tupple)
   - [Enumeration](#enumeration)
-  - [Matrix with numpy](#matrix)
-  - [Dataframe with pandas](#pandas)
+  - [Matrix with numpy](#matrix-with-numpy)
+  - [Dataframe with pandas](#pandas-with-pandas)
 - [Exceptions](#exceptions)
 - [IO Operations](#io-operations)
   - [Csv, Json, and Yaml](#csv-json-and-yaml)
