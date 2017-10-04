@@ -15,6 +15,7 @@ sorted(list(set(xs)))
 # Dictionary comprehension
 ```python
 {x: x for x in xs} #create dict from list
+[(k,dct[k]) for k in dct ] #create list of tupple from dict
 for key, value in dict.iteritems(): #Looping through key and value
 #Should use bunch for dict with attribute-style access. JSON and YAML-friendly
 import bunch
@@ -41,6 +42,13 @@ text = colored('Hello, World!', 'red', attrs=['reverse', 'blink']); print(text)
 cprint('Hello, World!', 'green', 'on_red')
 print_red_on_cyan = lambda x: cprint(x, 'red', 'on_cyan')
 print_red_on_cyan('Hello, World!')
+```
+# Process
+```python
+#Use setproctitle to set title for python process, useful when using ps to know which process to be killed.
+import setproctitle
+setproctitle(title)
+getproctitle() #Return current process title
 ```
 # Jupyter
 ```python
