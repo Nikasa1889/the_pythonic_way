@@ -29,7 +29,12 @@ abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
 ```
-
+# Pretty Print
+```python
+#Pretty print for tabular data, use tabulate
+from tabulate import tabulate
+print tabulate({"Name": ["Alice", "Bob"], "Age": [24, 19]}, headers="keys")
+```
 # Jupyter
 ```python
 !%matplotlib inline
