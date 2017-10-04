@@ -1,37 +1,41 @@
 # PythonSnippets
-the_pythonic_way contains a collection of useful snippets and recommendations of how to program in a "Pythonic way". People that come to Python from other languages like Java, C# or R might find these snippets helpful. the_pythonic_way can be used as a comprehensive Python cheatsheet, where you can look for short answers and keywords of how to do things in Python, so that you can easily google further.
+`the_pythonic_way` contains a collection of useful snippets and recommendations of how to program in a "Pythonic way". People that come to Python from other languages like Java, C# or R might find these snippets helpful. `the_pythonic_way` can be used as a comprehensive Python cheatsheet, where you can look for short answers and keywords of how to do things in Python, so that you can easily google further.
 
 # Table of Content:
-- [Coding Styles](#coding-styles)
+- [Coding Styles](#coding-styles) ([PEP 8](https://www.python.org/dev/peps/pep-0008/), [Google Style](https://google.github.io/styleguide/pyguide.html))
   - [Naming Conventions](#naming-conventions)
-- [Environment Management](#environment-management)
-  - [Pip requirements](#pip-requirements)
-  - [Conda environment management](#conda-environment-management)
+  - [Code Layout](#code-layout)
+- [Environment Management](#environment-management) 
+  - [Pip requirements](#pip-requirements) ([PIP](https://pip.pypa.io/en/stable/))
+  - [Conda environment management](#conda-environment-management) ([Conda](https://conda.io/docs/))
 - [Data Structures](#data-structures)
   - [List and List comprehension](#list-and-list-comprehension)
   - [Dictionary and Dictionary comprehension](#dictionary-and-dictionary-comprehension)
   - [String](#string)
   - [Tupple](#tupple)
-  - [Enumeration](#enumeration)
-  - [Matrix with numpy](#matrix-with-numpy)
-  - [Dataframe with pandas](#dataframe-with-pandas)
+  - [Enumeration](#enumeration) ([enum34](https://pypi.python.org/pypi/enum34))
+  - [Matrix with numpy](#matrix-with-numpy) ([numpy](http://www.numpy.org/))
+  - [Dataframe with pandas](#dataframe-with-pandas) ([pandas](http://pandas.pydata.org/))
 - [Exceptions](#exceptions)
 - [IO Operations](#io-operations)
-  - [Csv, Json, and Yaml](#csv-json-and-yaml)
-  - [Path operations](#path-operations)
-  - [Pretty Print](#pretty-print)
+  - [Csv, Json, and Yaml](#csv-json-and-yaml) ([csv](https://docs.python.org/2/library/csv.html), [json](https://docs.python.org/2/library/json.html), [PyYAML](http://pyyaml.org/wiki/PyYAMLDocumentation))
+  - [Path operations](#path-operations) ([os.path](https://docs.python.org/2/library/os.path.html))
+  - [Pretty Print](#pretty-print) ([tabulate](https://pypi.python.org/pypi/tabulate), [termcolor](https://pypi.python.org/pypi/termcolor))
 - [Process and Parallel Processing](#process-and-parallel-processing)
   - [Process](#process)
   - [Parallel Processing](#parallel-processing)
 - [Networking](#networking)
-  - [Consume REST API](#consume-rest-api)
-  - [Build REST API](#build-rest-api)
+  - [Consume REST API](#consume-rest-api) ([requests](http://docs.python-requests.org/en/master/))
+  - [Build REST API](#build-rest-api) ([flask](http://flask.pocoo.org/), [flask-restplus](http://flask-restplus.readthedocs.io/en/stable/))
 - [Jupyter](#jupyter)
   
 ## Coding Styles
 #### Naming Conventions
 ```python
 #TODO: Naming Conventions
+```
+#### Code Layout
+```python
 ```
 ## Environment Management
 #### Pip requirements
