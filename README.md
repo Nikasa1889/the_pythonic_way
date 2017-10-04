@@ -10,9 +10,10 @@
   - [Pip requirements](#pip-requirements) ([`pip`](https://pip.pypa.io/en/stable/))
   - [Conda environment management](#conda-environment-management) ([`conda`](https://conda.io/docs/))
 - [Data Structures](#data-structures)
+  - [Indexing](#indexing)
   - [List and List comprehension](#list-and-list-comprehension)
   - [Dictionary and Dictionary comprehension](#dictionary-and-dictionary-comprehension) ([`bunch`](https://pypi.python.org/pypi/bunch))
-  - [String](#string)
+  - [String](#string) ([`PyFormat`](https://pyformat.info/))
   - [Tupple](#tupple)
   - [Enumeration](#enumeration) ([`enum34`](https://pypi.python.org/pypi/enum34))
   - [Matrix with numpy](#matrix-with-numpy) ([`numpy`](http://www.numpy.org/))
@@ -68,7 +69,8 @@ def long_function_name(
 # Aligned with opening delimiter.
 foo = long_function_name(var_one, var_two,
                          var_three, var_four)
-# The closing brace/bracket/parenthesis on multi-line constructs line up under the first non-whitespace character:
+# The closing brace/bracket/parenthesis on multi-line constructs line up 
+# under the first non-whitespace character:
 my_list = [
     1, 2, 3,
     4, 5, 6,
@@ -133,6 +135,9 @@ activate ProjectChangeTheWorld
 
 ## Data Structures
 The two most important data structures in python are `List` and `Dictionary`. `numpy` is the most important data structure for scientific computing, which deals with `matrix` operations. For data scientists, `pandas` and its `dataframe` data structure is the most popular way to represent a data table.
+#### Indexing
+```python
+```
 #### List and List comprehension
 ```python
 xs = [1, 2, 3, 4, 5]                  #Declare a list
@@ -159,8 +164,24 @@ b['hello'] += "!"
 ```
 
 #### String
+You should consider reading this awesome [`PyFormat`](https://pyformat.info/) about how to format string in Python 
 ```python
-#TODO: string
+a = b = c = 'a string'                  # Declare 3 variables contain 'a string'
+d = a + c                               # String can be concanated with +
+''.join[a, b, c]                        # To concanate more than 2 strings, use ''.join(), much faster than +
+'%s %d %f' % ('one', 2, 3.0)            # Old style of how to format string.
+'{} {} {}'.format('one', 2, 3.0)        # New style of how to format string.
+'{:>10} {:^10} {:10}'.format('aligned_left', 
+                      'center', 'aligned_right')
+'{:>6.2f}'.format('3.141592653589793')
+
+# A string can be substring just like a list or numpy:
+a[2:]; a[:4]; a[:-1]; 
+
+#Find index where a substring first begins in a string
+str1 = "this is string example....wow!!!";
+str2 = "exam";
+print str1.find(str2)
 ```
 #### Tupple
 ```python
