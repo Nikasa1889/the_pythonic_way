@@ -1,9 +1,12 @@
 # PythonSnippets
 "The Pythonic way" contains a collection of useful snippets and recommendations of how to program in a "pythonic way". People that come to Python from other languages like Java, C# or R might find these snippets helpful. "The Pythonic Way" can be used as a comprehensive Python cheatsheet, where you can look for short answers and keywords of how to do things in Python, so that you can easily google further.
 
-#Table of Content:
+# Table of Content:
 - [Coding Styles](#coding-styles)
   - [Naming Conventions](#naming-conventions)
+- [Environment Management](#environment-management)
+  - [Pip requirements](#pip-requirements)
+  - [Conda environment management](#conda-environment-management)
 - [Data Structures](#data-structures)
   - [List and List comprehension](#list-and-list-comprehension)
   - [Dictionary and Dictionary comprehension](#dictionary-and-dictionary-comprehension)
@@ -24,14 +27,35 @@
   - [Consume REST API](#consume-rest-api)
   - [Build REST API](#build-rest-api)
 - [Jupyter](#jupyter)
-- [Environment Management](#environment-management)
-  - [Pip requirements](#pip-requirements)
-  - [Conda environment management](#conda-environment-management)
   
 ## Coding Styles
 #### Naming Conventions
 ```python
 #TODO: Naming Conventions
+```
+## Environment Management
+#### Pip requirements
+```bash
+#TODO:
+```
+#### Conda environment management
+How to update/create a conda environment and activate it
+```bash
+conda env update --file conda_environment.yml
+activate ProjectChangeTheWorld
+```
+Example of how to define an environment for conda:
+```yaml
+name: ProjectChangeTheWorld
+dependencies:
+  - python = 2.7.13
+  - pip:
+    - Flask>=0.12.2
+    - flask-restplus>=0.10.1
+    - PyYAML>=3.12
+    - requests>=2.18.4
+    - pyOpenSSL>=17.3.0
+    - cryptography==1.9
 ```
 ## Data Structures
 The two most important data structures in python are *List* and *Dictionary*. The two comes with For matrix operations, *Numpy* is the most important package for scientific computing. For data scientists, pandas dataframe is the most popular way to represent a data table. 
@@ -145,28 +169,4 @@ if __name__ == "__main__":
 !%matplotlib inline #inclide plots from matplotlib to the jupyter notebook
 !%config IPCompleter.greedy=True  #Press Tab to get autocomplete
 #TODO: Widget!
-```
-## Environment Management
-#### Pip requirements
-```bash
-#TODO:
-```
-#### Conda environment management
-How to update/create a conda environment and activate it
-```bash
-conda env update --file conda_environment.yml
-activate ProjectChangeTheWorld
-```
-Example of how to define an environment for conda:
-```yaml
-name: ProjectChangeTheWorld
-dependencies:
-  - python = 2.7.13
-  - pip:
-    - Flask>=0.12.2
-    - flask-restplus>=0.10.1
-    - PyYAML>=3.12
-    - requests>=2.18.4
-    - pyOpenSSL>=17.3.0
-    - cryptography==1.9
 ```
