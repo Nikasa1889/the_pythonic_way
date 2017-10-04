@@ -1,5 +1,5 @@
 # PythonSnippets
-"The Pythonic way" contains a collection of useful snippets and recommendations of how to program in a "pythonic way". People that come to Python from other languages like Java, C# or R might find these snippets helpful. "The Pythonic Way" can be used as a comprehensive Python cheatsheet, where you can look for short answers and keywords of how to do things in Python, so that you can easily google further.
+the_pythonic_way contains a collection of useful snippets and recommendations of how to program in a "Pythonic way". People that come to Python from other languages like Java, C# or R might find these snippets helpful. the_pythonic_way can be used as a comprehensive Python cheatsheet, where you can look for short answers and keywords of how to do things in Python, so that you can easily google further.
 
 # Table of Content:
 - [Coding Styles](#coding-styles)
@@ -145,12 +145,12 @@ getproctitle() #Return current process title
 ```python
 import requests
 params = {'param_1': 1, 'param_2': 2}
-r = requests.get('https://api.github.com/events', params, auth=(username, password))
-r = requests.post('http://httpbin.org/post', data = {'key':'value'})
-r = requests.put('http://httpbin.org/put', data = {'key':'value'})
-r = requests.delete('http://httpbin.org/delete')
-r = requests.head('http://httpbin.org/get')
-r = requests.options('http://httpbin.org/get')
+resp = requests.get('https://api.github.com/events', params, auth=(username, password))
+resp = requests.post('http://httpbin.org/post', data = {'key':'value'})
+resp = requests.put('http://httpbin.org/put', data = {'key':'value'})
+resp = requests.delete('http://httpbin.org/delete')
+resp = requests.head('http://httpbin.org/get')
+resp = requests.options('http://httpbin.org/get')
 ```
 #### Build REST API
 ```python
