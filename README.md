@@ -1,8 +1,40 @@
 # PythonSnippets
-Collection of useful python snippets
+"The Pythonic way" contains a collection of useful snippets and recommendations of how to program in a "pythonic way". People that come to Python from other languages like Java, C# or R might find these snippets helpful. "The Pythonic Way" can be used as a comprehensive Python cheatsheet, where you can look for short answers and keywords of how to do things in Python, so that you can easily google further.
 
+#Table of Content:
+- [Coding Styles](#coding-styles)
+  - Naming Conventions
+- [Data Structures](#data-structures)
+  - [List and List comprehension](#list-and-list-comprehension)
+  - [Dictionary and Dictionary comprehension](#dictionary-and-dictionary-comprehension)
+  - [String](#string)
+  - [Enumeration](#enumeration)
+  - [Matrix with numpy](#matrix)
+  - [Dataframe with pandas](#pandas)
+- [Exceptions](#exceptions)
+- [IO Operations](#io-operations)
+  - [Csv, Json, and Yaml](#csv-json-and-yaml)
+  - [Path operations](#path-operations)
+  - [Pretty Print](#pretty-print)
+- [Process and Parallel Processing](#process-and-parallel-processing)
+  - [Process](#process)
+  - [Parallel Processing](#parallel-processing)
+- [Networking](#Networking)
+  - [Consume REST API](#consume-rest-api)
+  - [Build REST API](#build-rest-api)
+- [Jupyter](#jupyter)
+- [Environment Management](#Environment-Management)
+  - [Pip requirements](#pip-requirements)
+  - [Conda environment management](#conda-environment-management)
+  
+## Coding Styles
+#### Naming Conventions
+```python
+#TODO: Naming Conventions
+```
 ## Data Structures
-#### List comprehension
+The two most important data structures in python are *List* and *Dictionary*. The two comes with For matrix operations, *Numpy* is the most important package for scientific computing. For data scientists, pandas dataframe is the most popular way to represent a data table. 
+#### List and List comprehension
 ```python
 [f(x) for x in xs]
 [f(x) for x in xs if is_g(x)]
@@ -13,7 +45,7 @@ Collection of useful python snippets
 #sort unique elements of a list
 sorted(list(set(xs)))
 ```
-#### Dictionary comprehension
+#### Dictionary and Dictionary comprehension
 ```python
 {x: x for x in xs} #create dict from list
 [(k,dct[k]) for k in dct ] #create list of tupple from dict
@@ -24,21 +56,34 @@ b = Bunch()
 b.hello = 'world'
 b['hello'] += "!"
 ```
-#### Enum
+#### String
+```python
+#TODO: string
+```
+#### Tupple
+```python
+#TODO: tupple 
+```
+#### Enumeration
 ```python
 #Use enum34
+#TODO
 ```
-
-#### Dataframe and Matrix
+#### Matrix with numpy
 ```python
-Use pandas and numpy
+#TODO: Use numpy
 ```
+#### Dataframe with pandas
+```python
+#TODO: Use pandas
+```
+## Exceptions
 ## IO operations
-#### Serialize, Deserialize
+#### CSV, Json, and Yaml
 ```python
 json, yaml
 ```
-#### Path
+#### Path operations
 ```python
 # Change working directory to the script directory, so that open file will work with relative path
 abspath = os.path.abspath(__file__)
@@ -58,7 +103,7 @@ cprint('Hello, World!', 'green', 'on_red')
 print_red_on_cyan = lambda x: cprint(x, 'red', 'on_cyan')
 print_red_on_cyan('Hello, World!')
 ```
-## Processes and Parallel
+## Process and Parallel Processing
 #### Process
 ```python
 #Use setproctitle to set title for python process, useful when using ps to know which process to be killed.
@@ -66,14 +111,13 @@ import setproctitle
 setproctitle(title)
 getproctitle() #Return current process title
 ```
-## Jupyter
+#### Parallel Processing
 ```python
-!%matplotlib inline
-!%config IPCompleter.greedy=True  #Press Tab to get autocomplete
+#TODO
 ```
 ## Networking
-#### Consuming REST API
-```
+#### Consume REST API
+```python
 import requests
 params = {'param_1': 1, 'param_2': 2}
 r = requests.get('https://api.github.com/events', params, auth=(username, password))
@@ -83,10 +127,28 @@ r = requests.delete('http://httpbin.org/delete')
 r = requests.head('http://httpbin.org/get')
 r = requests.options('http://httpbin.org/get')
 ```
-
-## Environement Management
-#### Pip requirements.txt
+#### Build REST API
+```python
+#Use Flask to build simple REST API. 
+#Use Flask-restplus automatically document your API and get the swagger page for free.
+from flask import Flask 
+app = Flask(__name__)
+@app.route("/")
+def hello():
+ return "Hello World!"
+if __name__ == "__main__":
+ app.run()
+```
+## Jupyter
+```python
+!%matplotlib inline #inclide plots from matplotlib to the jupyter notebook
+!%config IPCompleter.greedy=True  #Press Tab to get autocomplete
+#TODO: Widget!
+```
+## Environment Management
+#### Pip requirements
 ```bash
+#TODO:
 ```
 #### Conda environment management
 How to update/create a conda environment and activate it
