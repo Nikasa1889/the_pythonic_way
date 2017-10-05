@@ -32,7 +32,7 @@
 - [Jupyter](#jupyter) ([`jupyter`](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/))
   
 ## Coding Styles
-[`PEP 8`](https://www.python.org/dev/peps/pep-0008/) is highly recommended to go through, at least once in you life. It lists all the coding rules that accepted by the whole Python ecosystem. The [Google Style](https://google.github.io/styleguide/pyguide.html) is also a good reference.
+[`PEP 8`](https://www.python.org/dev/peps/pep-0008/) is highly recommended to go through, at least once in you life. It lists all the coding rules that accepted by the whole Python ecosystem. The [Google Style](https://google.github.io/styleguide/pyguide.html) is also a very good and comprehensive reference.
 #### Naming Conventions
 ```python
 import os                            #lower_case for package name, as short as possible (use abbrs)
@@ -62,14 +62,15 @@ class MyBag:                         #CapitalizedWords for class name
 # Use 4 spaces indentation
 # Limit all lines to 79 characters
 # Use utf-8 file encoding
+# Always try to align with opening delimiter.
+foo = long_function_name(var_one, var_two,
+                         var_three, var_four)
+
 # if use hanging indent: no arguments on the first line and further indentation on arguments.
 def long_function_name(
         var_one, var_two, var_three,
         var_four):
     print(var_one)
-# Aligned with opening delimiter.
-foo = long_function_name(var_one, var_two,
-                         var_three, var_four)
 # The closing brace/bracket/parenthesis on multi-line constructs line up 
 # under the first non-whitespace character:
 my_list = [
