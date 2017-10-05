@@ -32,6 +32,7 @@
 - [Jupyter](#jupyter) ([`jupyter`](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/))
   
 ## Coding Styles
+[`PEP 8`](https://www.python.org/dev/peps/pep-0008/) is highly recommended to go through, at least once in you life. It lists all the coding rules that accepted by the whole Python ecosystem. The [Google Style](https://google.github.io/styleguide/pyguide.html) is also a good reference.
 #### Naming Conventions
 ```python
 import os                            #lower_case for package name, as short as possible (use abbrs)
@@ -98,7 +99,7 @@ indent_style = tab
 You can use [`PyLint`](https://www.pylint.org/) to analyze your code and ensure the code quality.
 ## Environment Management
 #### Pip requirements
-`pip` gives you access to thousands of battle-tested Python libraries. It is the foundation of how Python becomes so convenient and powerful. In a python project, you usually find a `requirements.txt` file, which lists all the python packages that used in the project. 
+[`pip`](https://pip.pypa.io/en/stable/) gives you access to thousands of battle-tested Python libraries. It is the foundation of how Python becomes so convenient and powerful. In a python project, you usually find a `requirements.txt` file, which lists all the python packages that used in the project. 
 ```yaml
 Flask>=0.12.2
 flask-restplus>=0.10.1
@@ -112,7 +113,7 @@ All the requirements can be installed by using pip:
 pip install -r requirements.txt
 ```
 #### Conda environment management
-`conda` is a highly recommended way to manage python environement. You can create a seperate python enviroment for each of your projects. Installing packages with `conda install` is also more robust than using `pip`, since it uses pre-compiled libraries.
+[`conda`](https://conda.io/docs/) is a highly recommended way to manage python environement. You can create a seperate python enviroment for each of your projects. Installing packages with `conda install` is also more robust than using `pip`, since it uses pre-compiled libraries.
 
 Example of how to define an environment for conda in a `conda_environement.yml` file:
 ```yaml
@@ -134,9 +135,10 @@ activate ProjectChangeTheWorld
 ```
 
 ## Data Structures
-The two most important data structures in python are `List` and `Dictionary`. `numpy` is the most important data structure for scientific computing, which deals with `matrix` operations. For data scientists, `pandas` and its `dataframe` data structure is the most popular way to represent a data table.
+The two most important data structures in python are `List` and `Dictionary`, with their elegant `comprehension` syntax. `numpy` is the most important data structure for scientific computing dealling with `matrix` operations. For data scientists, `pandas` and its `dataframe` data structure is the most popular way to represent a data table.
 #### Indexing
 ```python
+#TODO: Common Python indexing ways that accepted in almost every data structure
 ```
 #### List and List comprehension
 ```python
@@ -238,7 +240,7 @@ getproctitle() #Return current process title
 ```
 #### Parallel Processing
 ```python
-#TODO
+#TODO: Multi-threading and Multi-processing
 ```
 ## Networking
 #### Consume REST API
@@ -268,5 +270,5 @@ if __name__ == "__main__":
 ```python
 !%matplotlib inline #inclide plots from matplotlib to the jupyter notebook
 !%config IPCompleter.greedy=True  #Press Tab to get autocomplete
-#TODO: Widget!
+#TODO: Jupyter Widget!
 ```
