@@ -23,6 +23,7 @@
   - [Csv, Json, and Yaml](#csv-json-and-yaml) ([`csv`](https://docs.python.org/2/library/csv.html), [`json`](https://docs.python.org/2/library/json.html), [`PyYAML`](http://pyyaml.org/wiki/PyYAMLDocumentation))
   - [Path operations](#path-operations) ([`os.path`](https://docs.python.org/2/library/os.path.html))
   - [Pretty Print](#pretty-print) ([`tabulate`](https://pypi.python.org/pypi/tabulate), [`termcolor`](https://pypi.python.org/pypi/termcolor))
+  - [Progress bar](#progress-bar) ([`tqdm`](https://pypi.python.org/pypi/tqdm))
 - [Process and Parallel Processing](#process-and-parallel-processing)
   - [Process](#process)
   - [Parallel Processing](#parallel-processing)
@@ -230,6 +231,14 @@ text = colored('Hello, World!', 'red', attrs=['reverse', 'blink']); print(text)
 cprint('Hello, World!', 'green', 'on_red')
 print_red_on_cyan = lambda x: cprint(x, 'red', 'on_cyan')
 print_red_on_cyan('Hello, World!')
+```
+#### Progress bar
+```python
+#Instantly make your loops show a smart progress meter
+#just wrap any iterable with tqdm(iterable), and you’re done!
+from tqdm import tqdm
+for i in tqdm(range(10000)):
+    ...
 ```
 ## Process and Parallel Processing
 #### Process
