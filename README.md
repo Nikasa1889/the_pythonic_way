@@ -30,6 +30,7 @@
 - [Networking](#networking)
   - [Consume REST API](#consume-rest-api) ([`requests`](http://docs.python-requests.org/en/master/))
   - [Build REST API](#build-rest-api) ([`Flask`](http://flask.pocoo.org/), [`flask-restplus`](http://flask-restplus.readthedocs.io/en/stable/))
+- [Scikit-learn](#scikit-learn)
 - [Jupyter](#jupyter) ([`jupyter`](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/))
   
 ## Coding Styles
@@ -275,6 +276,19 @@ def hello():
  return "Hello World!"
 if __name__ == "__main__":
  app.run()
+```
+## Scikit-learn
+```python
+#sklearn.preprocessing.LabelEncoder
+from sklearn import preprocessing
+le = preprocessing.LabelEncoder()
+le.fit([1, 2, 2, 6])
+le.classes_
+# array([1, 2, 6])
+le.transform([1, 1, 2, 6]) 
+# array([0, 0, 1, 2]...)
+le.inverse_transform([0, 0, 1, 2])
+# array([1, 1, 2, 6])
 ```
 ## Jupyter
 ```python
