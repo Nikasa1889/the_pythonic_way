@@ -30,7 +30,7 @@
 - [Networking](#networking)
   - [Consume REST API](#consume-rest-api) ([`requests`](http://docs.python-requests.org/en/master/))
   - [Build REST API](#build-rest-api) ([`Flask`](http://flask.pocoo.org/), [`flask-restplus`](http://flask-restplus.readthedocs.io/en/stable/))
-- [Scikit-learn](#scikit-learn)
+- [Scikit-learn](#scikit-learn) ([`LabelEncoder`](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html))
 - [Jupyter](#jupyter) ([`jupyter`](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/))
   
 ## Coding Styles
