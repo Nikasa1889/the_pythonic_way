@@ -206,6 +206,15 @@ print str1.find(str2)
 #TODO: Use pandas
 ```
 ## Exceptions
+Use the logging package when you catch an exception so that you get a full exception traceback
+
+```python
+import logging
+try:
+    # change the world
+except Exception as ex:
+    logging.exception('')
+```
 ## IO operations
 #### CSV, Json, and Yaml
 ```python
