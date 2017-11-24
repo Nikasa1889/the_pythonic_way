@@ -26,10 +26,10 @@
   - [Progress bar](#progress-bar) ([`tqdm`](https://pypi.python.org/pypi/tqdm))
 - [Process and Parallel Processing](#process-and-parallel-processing)
   - [Process](#process)
-  - [Parallel Processing](#parallel-processing)
+  - [Parallel Processing](#parallel-processing) ([`multiprocessing`](https://docs.python.org/2/library/multiprocessing.html))
 - [Networking](#networking)
   - [Consume REST API](#consume-rest-api) ([`requests`](http://docs.python-requests.org/en/master/))
-  - [Build REST API](#build-rest-api) ([`Flask`](http://flask.pocoo.org/), [`flask-restplus`](http://flask-restplus.readthedocs.io/en/stable/))
+  - [Build REST API](#build-rest-api) ([`flask`](http://flask.pocoo.org/), [`flask-restplus`](http://flask-restplus.readthedocs.io/en/stable/)), [`connexion`](http://connexion.readthedocs.io/en/latest/)
 - [Scikit-learn](#scikit-learn) ([`LabelEncoder`](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html))
 - [Jupyter](#jupyter) ([`jupyter`](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/))
   
@@ -230,6 +230,7 @@ dname = os.path.dirname(abspath)
 os.chdir(dname)
 ```
 #### Pretty Print
+Use `tabulate` to pretty print tabular data, and `termcolor` to colorize terminal output.
 ```python
 #Pretty print for tabular data, use tabulate
 from tabulate import tabulate
@@ -243,9 +244,8 @@ print_red_on_cyan = lambda x: cprint(x, 'red', 'on_cyan')
 print_red_on_cyan('Hello, World!')
 ```
 #### Progress bar
+Instantly make your loops show a smart progress meter. Just wrap any iterable with tqdm(iterable), and you’re done!
 ```python
-#Instantly make your loops show a smart progress meter
-#just wrap any iterable with tqdm(iterable), and you’re done!
 from tqdm import tqdm
 for i in tqdm(range(10000)):
     ...
@@ -259,11 +259,27 @@ setproctitle(title)
 getproctitle() #Return current process title
 ```
 #### Parallel Processing
+The recommended way to spawn mutiple processes in Python is to use the `multiprocessing` package.
 ```python
-#TODO: Multi-threading and Multi-processing
+import multiprocessing
+
+def worker(num):
+    """thread worker function"""
+    print 'Worker:', num
+    return
+
+if __name__ == '__main__':     # always check for __main__ to prevent recursive spawning
+    jobs = []
+    p1 = multiprocessing.Process(target=worker, args=(1,))
+    p2 = multiprocessing.Process(target=worker, args=(2,))
+    p1.start()
+    p2.start()
+    p1.join()  # wait for worker 1
+    p2.join()  # wait for worker 2
 ```
 ## Networking
 #### Consume REST API
+Being the most downloaded package on pip, `requests` has everything you need when interacting with REST APIs
 ```python
 import requests
 params = {'param_1': 1, 'param_2': 2}
@@ -275,9 +291,9 @@ resp = requests.head('http://httpbin.org/get')
 resp = requests.options('http://httpbin.org/get')
 ```
 #### Build REST API
+`flask` is the most common way to create a microservice in Python, which has many plugins that you can add to your service. The most common plugin is `flask-restplus`, which automatically document your API and get you the swagger page for free.
+You can also try `connexion`, which built on top of `flask` and following the "API design first" principle.
 ```python
-#Use Flask to build simple REST API. 
-#Use Flask-restplus automatically document your API and get the swagger page for free.
 from flask import Flask 
 app = Flask(__name__)
 @app.route("/")
