@@ -18,7 +18,7 @@
   - [Enumeration](#enumeration) ([`enum34`](https://pypi.python.org/pypi/enum34))
   - [Matrix with numpy](#matrix-with-numpy) ([`numpy`](http://www.numpy.org/), [`memmap`](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.memmap.html))
   - [Dataframe with pandas](#dataframe-with-pandas) ([`pandas`](http://pandas.pydata.org/))
-- [Exceptions](#exceptions)
+- [Exceptions](#exceptions) ([`throw exception`](https://eli.thegreenplace.net/2008/08/21/robust-exception-handling/))
 - [IO Operations](#io-operations)
   - [Csv, Json, and Yaml](#csv-json-and-yaml) ([`csv`](https://docs.python.org/2/library/csv.html), [`json`](https://docs.python.org/2/library/json.html), [`PyYAML`](http://pyyaml.org/wiki/PyYAMLDocumentation))
   - [Path operations](#path-operations) ([`os.path`](https://docs.python.org/2/library/os.path.html))
@@ -206,6 +206,7 @@ print str1.find(str2)
 #TODO: Use pandas
 ```
 ## Exceptions
+In Python, we usually prefer raising exceptions than returning error code, [`check here`](https://eli.thegreenplace.net/2008/08/21/robust-exception-handling/)
 Use the logging package when you catch an exception so that you get a full exception traceback
 
 ```python
