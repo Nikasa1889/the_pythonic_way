@@ -32,7 +32,7 @@
   - [Build REST API](#build-rest-api) ([`flask`](http://flask.pocoo.org/), [`flask-restplus`](http://flask-restplus.readthedocs.io/en/stable/)), [`connexion`](http://connexion.readthedocs.io/en/latest/)
 - [Scikit-learn](#scikit-learn) ([`LabelEncoder`](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html))
 - [Jupyter](#jupyter) ([`jupyter`](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/))
-  
+- [Microservices](#microservices) ([`12 factor`](https://12factor.net/))
 ## Coding Styles
 [`PEP 8`](https://www.python.org/dev/peps/pep-0008/) is highly recommended to go through, at least once in you life. It lists all the coding rules that accepted by the whole Python ecosystem. The [Google Style](https://google.github.io/styleguide/pyguide.html) is also a very good and comprehensive reference.
 #### Naming Conventions
@@ -322,3 +322,6 @@ le.inverse_transform([0, 0, 1, 2])
 !%config IPCompleter.greedy=True  #Press Tab to get autocomplete
 #TODO: Jupyter Widget!
 ```
+## Microservices
+[12 factor](https://12factor.net/)
+[Code reuse in microservices](http://blog.scottlogic.com/2016/06/13/code-reuse-in-microservices-architecture.html)
