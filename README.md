@@ -325,3 +325,4 @@ le.inverse_transform([0, 0, 1, 2])
 ## Microservices
 [12 factor](https://12factor.net/)
 [Code reuse in microservices](http://blog.scottlogic.com/2016/06/13/code-reuse-in-microservices-architecture.html)
+[Don't share libraries among microservices](https://blog.philipphauer.de/dont-share-libraries-among-microservices/)
