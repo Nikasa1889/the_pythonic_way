@@ -19,6 +19,7 @@
   - [Matrix with numpy](#matrix-with-numpy) ([`numpy`](http://www.numpy.org/), [`memmap`](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.memmap.html))
   - [Dataframe with pandas](#dataframe-with-pandas) ([`pandas`](http://pandas.pydata.org/))
 - [Exceptions](#exceptions) ([`throw exception`](https://eli.thegreenplace.net/2008/08/21/robust-exception-handling/))
+- [Debugging](#debugging) ([`ipdb`](http://devmartin.com/blog/2014/10/trigger-ipdb-within-ipython-notebook/))
 - [IO Operations](#io-operations)
   - [Csv, Json, and Yaml](#csv-json-and-yaml) ([`csv`](https://docs.python.org/2/library/csv.html), [`json`](https://docs.python.org/2/library/json.html), [`PyYAML`](http://pyyaml.org/wiki/PyYAMLDocumentation))
   - [Path operations](#path-operations) ([`os.path`](https://docs.python.org/2/library/os.path.html))
@@ -214,8 +215,15 @@ import logging
 try:
     # change the world
 except Exception as ex:
-    logging.exception('')
+    logging.exception('', exc_info=True)
 ```
+## Debugging
+I usually prefer to experiment codes in Jupyter. You can use [`ipdb`](http://frid.github.io/blog/2014/06/05/python-ipdb-cheatsheet/) to debug in Jupyter. To [`trigger`](http://devmartin.com/blog/2014/10/trigger-ipdb-within-ipython-notebook/) a debugging session in Jupyter, at the following line to your code at where you want to start debugging:
+
+```python
+from IPython.core.debugger import Tracer; Tracer()()
+```
+
 ## IO operations
 #### CSV, Json, and Yaml
 ```python
