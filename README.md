@@ -330,6 +330,24 @@ le.inverse_transform([0, 0, 1, 2])
 !%config IPCompleter.greedy=True  #Press Tab to get autocomplete
 #TODO: Jupyter Widget!
 ```
+## Coding Workflow
+I use Jupyter and Vim8 together to program. I experiment my code first in Jupyter and reorganize things using Vim8. Code can be debugged in Jupyter with `ipdb`. To maintain session, I use `tmux`. I setup Vim8 similar to what introduced here: [Use VIM as a python IDE](http://liuchengxu.org/posts/use-vim-as-a-python-ide/)
+
+Useful shortcuts in VIM. Some I configured myself, some are default behavior of VIM or its plugins.
+
+| Shortcut | Function |
+| --- | --- |
+| `tab` | Fill spaces as tabbing the whole line, even in insert mode |
+| `shift-tab` | Delete tabbing of the whole line |
+| `space` | Toggle code fold |
+| `Ctr-y` | Run YAPF for code reformating |
+| `bb`| In insert mode, put breakpoint |
+| `\d`| Go to code definition |
+| `\r`| Rename |
+| `Ctr-o`| Go to previous place |
+| `Ctr-space| Autocomplete with Jedi-vim |
+
+
 ## Microservices
 [12 factor](https://12factor.net/)
 
