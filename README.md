@@ -341,11 +341,11 @@ Useful shortcuts in VIM. Some I configured myself, some are default behavior of 
 | `shift-tab` | Delete tabbing of the whole line |
 | `space` | Toggle code fold |
 | `Ctr-y` | Run YAPF for code reformating |
-| `bb`| In insert mode, put breakpoint |
-| `\d`| Go to code definition |
-| `\r`| Rename |
-| `Ctr-o`| Go to previous place |
-| `Ctr-space| Autocomplete with Jedi-vim |
+| `bb` | In insert mode, put breakpoint |
+| `\d` | Go to code definition |
+| `\r` | Rename |
+| `Ctr-o` | Go to previous place |
+| `Ctr-space` | Autocomplete with Jedi-vim |
 
 
 ## Microservices
