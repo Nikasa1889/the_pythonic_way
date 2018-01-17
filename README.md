@@ -337,6 +337,7 @@ Useful shortcuts in VIM. Some I configured myself, some are default behavior of 
 
 | Shortcut | Function |
 | --- | --- |
+| `"+` | Select + (system clipboard) as vim register. Use Visual Mode first to select text. Need `vim-gtk`|
 | `tab` | Fill spaces as tabbing the whole line, even in insert mode |
 | `shift-tab` | Delete tabbing of the whole line |
 | `space` | Toggle code fold |
