@@ -348,6 +348,8 @@ Useful shortcuts in VIM. Some I configured myself, some are default behavior of 
 | `\r` | Rename |
 | `Ctr-o` | Go to previous place |
 | `Ctr-space` | Autocomplete with Jedi-vim |
+| `:Isort` | Run isort to sort and clean import section |
+| `F3` | Run AutoFormat (call autopep8) |
 
 
 ## Microservices
