@@ -351,6 +351,7 @@ Useful shortcuts in VIM. Some I configured myself, some are default behavior of 
 | `:Isort` | Run isort to sort and clean import section |
 | `F3` | Run AutoFormat (call autopep8) |
 
+Vim search pattern in all files: `:vimgrep /pattern/ ./**/*.py | cw`
 
 ## Microservices
 [12 factor](https://12factor.net/)
