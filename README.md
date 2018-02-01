@@ -217,6 +217,28 @@ try:
 except Exception as ex:
     logging.exception('', exc_info=True)
 ```
+You can setup custom logger (file or stream handler) like this:
+
+```python
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+
+file_handler = logging.FileHandler('sample.log')
+file_handler.setLevel(logging.ERROR)
+file_handler.setFormatter(formatter)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+...
+logger.Info("Everything is working fine, sir!")
+logger.exception("Alert, Alert!")
+```
+
 ## Debugging
 I usually prefer to experiment codes in Jupyter. You can use [`ipdb`](http://frid.github.io/blog/2014/06/05/python-ipdb-cheatsheet/) to debug in Jupyter. To [`trigger`](http://devmartin.com/blog/2014/10/trigger-ipdb-within-ipython-notebook/) a debugging session in Jupyter, at the following line to your code at where you want to start debugging:
 
