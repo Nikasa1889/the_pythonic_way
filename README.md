@@ -177,6 +177,7 @@ d = a + c                               # String can be concanated with +
 ''.join[a, b, c]                        # To concanate more than 2 strings, use ''.join(), much faster than +
 '%s %d %f' % ('one', 2, 3.0)            # Old style of how to format string.
 '{} {} {}'.format('one', 2, 3.0)        # New style of how to format string.
+f'{a} {b} {c}'                          # Short form to format string
 '{:>10} {:^10} {:10}'.format('aligned_left', 
                       'center', 'aligned_right')
 '{:>6.2f}'.format('3.141592653589793')
@@ -252,6 +253,7 @@ from IPython.core.debugger import Tracer; Tracer()()
 json, yaml
 ```
 #### Path operations
+You can either use `os` package
 ```python
 # Join paths
 os.path.join('path/the/dir','subdir/inside')
@@ -259,6 +261,12 @@ os.path.join('path/the/dir','subdir/inside')
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
+```
+Or you can use [`pathlib`](http://pbpython.com/pathlib-intro.html), which is much more convient way to deal with path and files in Python.
+```python
+from pathlib import Path
+in_file_1 = Path.cwd() / "in" / "input.xlsx"
+out_file_1 = Path.cwd() / "out" / "output.xlsx"
 ```
 #### Pretty Print
 Use `tabulate` to pretty print tabular data, and `termcolor` to colorize terminal output.
