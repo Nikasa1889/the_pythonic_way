@@ -10,16 +10,17 @@
   - [Pip requirements](#pip-requirements) ([`pip`](https://pip.pypa.io/en/stable/))
   - [Conda environment management](#conda-environment-management) ([`conda`](https://conda.io/docs/))
 - [Data Structures](#data-structures)
-  - [Indexing](#indexing)
-  - [Tuple and Tuple Unpacking](#tuple-and-tuple-unpacking)
+  - [Tuple and Tuple Unpacking](#tuple-and-tuple-unpacking) ([`tuple`](https://docs.python.org/3.6/library/stdtypes.html#tuple))
   - [List and List comprehension](#list-and-list-comprehension)
-  - [Common Sequence operations and Indexing](#common-sequence-operations-and-indexing)
+  - [Common Sequence Operations and Indexing](#common-sequence-operations-and-indexing)
   - [Dictionary and Dictionary comprehension](#dictionary-and-dictionary-comprehension) ([`bunch`](https://pypi.python.org/pypi/bunch))
-  - [String](#string) ([`PyFormat`](https://pyformat.info/))
+  - [String](#string) ([`f-strings`](https://www.python.org/dev/peps/pep-0498/), [string manipulations](https://docs.python.org/3.6/library/stdtypes.html#str), [regular expression](https://docs.python.org/3.6/library/re.html))
   - [Enumeration](#enumeration) ([`enum34`](https://pypi.python.org/pypi/enum34))
-  - [Matrix with numpy](#matrix-with-numpy) ([`numpy`](http://www.numpy.org/), [`memmap`](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.memmap.html))
+  - [Matrix with numpy](#matrix-with-numpy) ([`numpy`](http://www.numpy.org/), [`memmap`](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.memmap.html), [bcolz](https://github.com/Blosc/bcolz))
   - [Dataframe with pandas](#dataframe-with-pandas) ([`pandas`](http://pandas.pydata.org/))
 - [Control Flows](#control-flows) ([`compound statements`](https://docs.python.org/3/reference/compound_stmts.html))
+- [Functions](#functions)
+- [Modules](#modules)
 - [Exceptions](#exceptions) ([`throw exception`](https://eli.thegreenplace.net/2008/08/21/robust-exception-handling/))
 - [Debugging](#debugging) ([`pdb`](https://stackoverflow.com/questions/1623039/python-debugging-tips), [`ipdb`](http://devmartin.com/blog/2014/10/trigger-ipdb-within-ipython-notebook/))
 - [IO Operations](#io-operations)
@@ -144,7 +145,7 @@ activate ProjectChangeTheWorld
 The three most popular and important built-in data structures in python are `tuple`, `list` and `dict` with their elegant `comprehension` syntax; come behind are `str` and `set`. `generator` is a powerful and elegant way to iterate over any type of container object. `numpy` is the most important data structure for scientific computing dealling with `matrix` operations. For data scientists, `pandas` and its `dataframe` data structure is the most popular way to represent a data table.
 
 #### Tuple and Tuple Unpacking
-[`tuple`](https://docs.python.org/3.6/library/stdtypes.html#tuple) is immutable sequences, typically used to store collections of heterogeneous data (data of different types). It is commonly used to pack mutiple results returned by a function. Note that `tuple` is a sequence structure, so all [common sequence operations and indexing](#common-sequence-operations-and-indexing) can be used.
+[`tuple`](https://docs.python.org/3.6/library/stdtypes.html#tuple) is immutable sequences, typically used to store collections of heterogeneous data (data of different types). Tuple is an important concept in functional programming, where all variables are immutable. It can be used as a flexible version of C `struct`. It is commonly used to pack mutiple results returned by a function. Note that `tuple` is a sequence structure, so all [common sequence operations and indexing](#common-sequence-operations-and-indexing) can be used.
 
 ```python
 tp = ('a', 1, 'b', 2)                 # declare a tuple
@@ -188,26 +189,49 @@ sorted(xs, reverse=True)              # return sorted version of xs (asc if reve
 ## Unique list
 list(set(xs))                         # return new list with unique elements of xs
 ```
-#### String and Regular Expression
-You should consider reading this awesome [`PyFormat`](https://pyformat.info/) about how to format string in Python. It is highly recommended to use Python 3 string format.
+#### String
+In python, `str` is a sequence of char, which means all [common sequence operations](#common-sequence-operations-and-indexing) can be used. Here I only list string-specific operations, which includes [string format](https://www.python.org/dev/peps/pep-0498/), [string manipulations](https://docs.python.org/3.6/library/stdtypes.html#str), and [regular expression](https://docs.python.org/3.6/library/re.html).
+
+Python supports multiple ways to format text strings. These include [`%-formatting`](https://pyformat.info/) , [`str.format()`](https://pyformat.info/), and `string.Template`. But in most case, the best way to format string in Python is by using Literal String Interpolation, or usually referred to as [`f-strings`](https://www.python.org/dev/peps/pep-0498/).
+
 ```python
-a = b = c = 'a string'                  # declare 3 variables contain 'a string'
-d = a + c                               # string can be concanated with +
-''.join[a, b, c]                        # to concanate more than 2 strings, use ''.join(), much faster than +
-'%s %d %f' % ('one', 2, 3.0)            # old style of how to format string.
-'{} {} {}'.format('one', 2, 3.0)        # new style of how to format string.
-f'{a} {b} {c}'                          # short form to format string
-'{:>10} {:^10} {:10}'.format('aligned_left', 
-                      'center', 'aligned_right')
-'{:>6.2f}'.format('3.141592653589793')
+# String format
+st = 'one'; n_1 = 2; n_2 = 3.0
+'%s %d %f' % (st, n_1, n_2)             # %-formatting
+'{} {} {}'.format('one', 2, 3.0)        # str.format()
+f'{st} {n_1} {n_2}'                     # Literal String Interpolation, or f-strings
 
-# A string can be substring just like any other sequence structure:
-a[2:]; a[:4]; a[:-1]; 
+# String manipulation
+'   spacious   '.strip()                # Remove leading and trailing spaces
+st.startswith('on')                     # Check if st start with 'on'; can specify start and end index
+st.startswith('ne')
 
+''.join(['1', '22', 'xx'])              # join list of strings into a single string
+', '.join(['1', '22', 'xx'])            # join list of strings with ', ' as seperator
+'1,2,3'.split(',')                      # split a string using ',' as seperator.
+'1,2,3'.split(',', maxsplit=1)          # split a string maxsplit times using ',' as seperator (return ['1', '2,3'])
+
+st.replace('ne', 'NE')                  # return a copy of the string with all occurrences of 'ne' replaced by new 'NE'.
+
+# String search
 #Find index where a substring first begins in a string
 str1 = "this is string example....wow!!!";
 str2 = "exam";
-print str1.find(str2)
+str1.find(str2)                         # return the lowest index in str1 where str2 is found.
+str1.find(str2, start=10, end=20)       # return the lowest index in range [start:end] where str2 is found in str1
+str1.index(str2)                        # like find(), but raise ValueError when the str2 is not found.
+
+# Regular Expression
+import re
+text = "He was carefully disguised but captured quickly by police."
+re.findall(r"\w+ly", text)             # find all occurrences of a pattern (return ['carefully', 'quickly'])
+for m in re.finditer(r"\w+ly", text):  # find all matches with their positions.
+    print(f'{m.start()}-{m.end()}: {m.group(0)}')
+re.search(r"\w+ly", text)              # return match object contains first match of pattern. 
+                                       #   match object has info about where the match occurs
+re.sub(r"\w+ly", '__', text)           # replace all occurences of a pattern with the string '__'.
+re.sub(r"\w+ly", f, text)              # replace all occurences x of a pattern with f(x).
+re.split(r"but", text)                 # split string into list of strings using any substring that satisfies the pattern
 ```
 
 #### Common Sequence operations and Indexing
@@ -230,13 +254,19 @@ xs[0:2]                   # slice of xs from 1 to 3
 xs[0:3:2]                 # slice of xs from 0 to 3 with step 2
 xs[::2]                   # all items at even index
 xs[1::2]                  # all items at odd index
-xs.idex(x, 1, 3)          # index of the first occurence of x in xs that comes after the 1th and before 3th item.
+xs[:-1]                   # all items except the last
+xs.index(x, 1, 3)          # index of the first occurence of x in xs that comes after the 1th and before 3th item.
 
 #Looping
 [f(x) for x in xs]                    # map function f(.) to each list element
 [f(idx, x) for idx, x in enumerate(xs)] # use enumerate(.) to loop through elements of a sequence with index
+
+#Unpacking
+a, b, c = xs             # unpack elements of xs into a, b, and c; len(xs) must equal 3
+f(*xs)                   # the single star operator unpacks the sequence xs into positional arguments of f(.)
 ```
 #### Generator and Yield
+[`generator`](https://wiki.python.org/moin/Generators)
 
 #### Dictionary and Dictionary comprehension
 ```python
@@ -265,8 +295,17 @@ b['hello'] += "!"
 #TODO: Use pandas
 ```
 ## Control Flows
+[`Compound Statments`](https://docs.python.org/3/reference/compound_stmts.html)
 ```python
 #TODO: if, while, for
+```
+## Functions
+```python
+#TODO: def, lambda, * star o
+```
+## Modules
+```python
+#TODO: import, isort, PYTHONPATH
 ```
 ## Exceptions
 In Python, we usually prefer raising exceptions than returning error code, [`check here`](https://eli.thegreenplace.net/2008/08/21/robust-exception-handling/)
