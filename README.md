@@ -11,18 +11,20 @@
   - [Conda environment management](#conda-environment-management) ([`conda`](https://conda.io/docs/))
 - [Data Structures](#data-structures)
   - [Indexing](#indexing)
+  - [Tuple and Tuple Unpacking](#tuple-and-tuple-unpacking)
   - [List and List comprehension](#list-and-list-comprehension)
+  - [Common Sequence operations and Indexing](#common-sequence-operations-and-indexing)
   - [Dictionary and Dictionary comprehension](#dictionary-and-dictionary-comprehension) ([`bunch`](https://pypi.python.org/pypi/bunch))
   - [String](#string) ([`PyFormat`](https://pyformat.info/))
-  - [Tupple](#tupple)
   - [Enumeration](#enumeration) ([`enum34`](https://pypi.python.org/pypi/enum34))
   - [Matrix with numpy](#matrix-with-numpy) ([`numpy`](http://www.numpy.org/), [`memmap`](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.memmap.html))
   - [Dataframe with pandas](#dataframe-with-pandas) ([`pandas`](http://pandas.pydata.org/))
+- [Control Flows](#control-flows) ([`compound statements`](https://docs.python.org/3/reference/compound_stmts.html))
 - [Exceptions](#exceptions) ([`throw exception`](https://eli.thegreenplace.net/2008/08/21/robust-exception-handling/))
-- [Debugging](#debugging) ([`ipdb`](http://devmartin.com/blog/2014/10/trigger-ipdb-within-ipython-notebook/))
+- [Debugging](#debugging) ([`pdb`](https://stackoverflow.com/questions/1623039/python-debugging-tips), [`ipdb`](http://devmartin.com/blog/2014/10/trigger-ipdb-within-ipython-notebook/))
 - [IO Operations](#io-operations)
   - [Csv, Json, and Yaml](#csv-json-and-yaml) ([`csv`](https://docs.python.org/2/library/csv.html), [`json`](https://docs.python.org/2/library/json.html), [`PyYAML`](http://pyyaml.org/wiki/PyYAMLDocumentation))
-  - [Path operations](#path-operations) ([`os.path`](https://docs.python.org/2/library/os.path.html))
+  - [Path operations](#path-operations) ([`pathlib`](http://pbpython.com/pathlib-intro.html), [`os.path`](https://docs.python.org/2/library/os.path.html))
   - [Pretty Print](#pretty-print) ([`tabulate`](https://pypi.python.org/pypi/tabulate), [`termcolor`](https://pypi.python.org/pypi/termcolor))
   - [Progress bar](#progress-bar) ([`tqdm`](https://pypi.python.org/pypi/tqdm))
 - [Process and Parallel Processing](#process-and-parallel-processing)
@@ -139,28 +141,108 @@ activate ProjectChangeTheWorld
 ```
 
 ## Data Structures
-The two most important data structures in python are `List` and `Dictionary`, with their elegant `comprehension` syntax. `numpy` is the most important data structure for scientific computing dealling with `matrix` operations. For data scientists, `pandas` and its `dataframe` data structure is the most popular way to represent a data table.
-#### Indexing
+The three most popular and important built-in data structures in python are `tuple`, `list` and `dict` with their elegant `comprehension` syntax; come behind are `str` and `set`. `generator` is a powerful and elegant way to iterate over any type of container object. `numpy` is the most important data structure for scientific computing dealling with `matrix` operations. For data scientists, `pandas` and its `dataframe` data structure is the most popular way to represent a data table.
+
+#### Tuple and Tuple Unpacking
+[`tuple`](https://docs.python.org/3.6/library/stdtypes.html#tuple) is immutable sequences, typically used to store collections of heterogeneous data (data of different types). It is commonly used to pack mutiple results returned by a function. Note that `tuple` is a sequence structure, so all [common sequence operations and indexing](#common-sequence-operations-and-indexing) can be used.
+
 ```python
-#TODO: Common Python indexing ways that accepted in almost every data structure
+tp = ('a', 1, 'b', 2)                 # declare a tuple
+tp = 'a', 1, 'b', 2                   # you do not need paratheses to declare tuple
+
+a, av, b, bv = tp                     # unpacking tuple into variables, useful 
+def f(tp):                                  # function that concate string at even index, 
+  return (''.join(tp[::2]), sum(tp[1::2]))  #   and sum of number at odd index of input tuple.
+name, total = f(tp)                   # unpacking tuple returned by a function
 ```
+
 #### List and List comprehension
+List are mutable sequences, typically used to store collections of homogeneous items (items of the same data type).
 ```python
-xs = [1, 2, 3, 4, 5]                  #Declare a list
-[f(x) for x in xs]                    #Map function f(.) to each list element
-[f(x) for x in xs if is_g(x)]         #Filter with is_g(.) and map f(.) to each list element
-[f(x) for xs in xss for x in xs]      #Map function f(.) to each element in a list_of_list
+## Declare list
+xs = [1, 2, 3, 4, 5]                  # declare a list
+ys = list(range(5))                   # convert range; generator; tuple;... to list by using list(.)
+sorted(xs, reverse=True)              # sort a list
+xts = tuple(xs)                       # convert list into tuple, which is immutable and can be distribute
+a,b,c = [1, 2, 3]                     # unpack list to multiple variables; number of variables must equal length of list
 
-[f(x, y) for (x, y) in zip(xs, ys)]   #Map a function f(.,.) to a list of tupple
+## List comprehension
+[f(x) for x in xs]                    # map function f(.) to each element of xs. xs can be any sequence like list, string, tuple.
+[f(x) for x in xs if is_g(x)]         # filter with is_g(.) and map f(.) to each list element
+[f(x) for xs in xss for x in xs]      # map function f(.) to each element in a list_of_list
 
-#sort unique elements of a list
-sorted(list(set(xs)))                 #use list(set(.)) to produce list with unique elements, sorted(.) to sort.
+[f(x, y) for (x, y) in zip(xs, ys)]   # map a function f(.,.) to a list of tupple
+
+## Modify list
+xs.append(6)                          # append 6 to the end of list xs
+xs.extend(ys)                         # append all elements of ys to the end of xs
+xs.insert(0, 6)                       # insert 6 to position 0 of xs
+xs.pop()                              # remove last element of xs and return its value
+xs.pop(2)                             # remove element at index 2 of xs
+xs.reverse()                          # reverse the elements of xs (in-place)
+
+## Sort a list
+sorted(xs, reverse=True)              # return sorted version of xs (asc if reverse=True, otherwise, desc)
+[x[0] for x in sorted(enumerate(xs), key=lambda tup:tup[1])] # return index of sorted elements of xs
+
+## Unique list
+list(set(xs))                         # return new list with unique elements of xs
 ```
+#### String and Regular Expression
+You should consider reading this awesome [`PyFormat`](https://pyformat.info/) about how to format string in Python. It is highly recommended to use Python 3 string format.
+```python
+a = b = c = 'a string'                  # declare 3 variables contain 'a string'
+d = a + c                               # string can be concanated with +
+''.join[a, b, c]                        # to concanate more than 2 strings, use ''.join(), much faster than +
+'%s %d %f' % ('one', 2, 3.0)            # old style of how to format string.
+'{} {} {}'.format('one', 2, 3.0)        # new style of how to format string.
+f'{a} {b} {c}'                          # short form to format string
+'{:>10} {:^10} {:10}'.format('aligned_left', 
+                      'center', 'aligned_right')
+'{:>6.2f}'.format('3.141592653589793')
+
+# A string can be substring just like any other sequence structure:
+a[2:]; a[:4]; a[:-1]; 
+
+#Find index where a substring first begins in a string
+str1 = "this is string example....wow!!!";
+str2 = "exam";
+print str1.find(str2)
+```
+
+#### Common Sequence operations and Indexing
+All sequence data structures, including `tuple`, `list`, and `string`, accepts the following [common sequence operations](https://docs.python.org/3.6/library/stdtypes.html#typesseq-common). 
+```python
+xs = [3, 5, 7, 9]         # xs is a sequence, can be list, tuple, or string
+ys = [2, 4, 6, 8]
+x = 1                     # x is an item
+
+x in xs                   # check if x is in xs
+x not in xs               # check if x is not in xs
+xs.count(x)               # number of items equal to x in xs
+xs + ys                   # create new sequence by concenate xs and ys
+xs*3                      # create a new sequence by concenate xs 3 times to itself
+len(xs); min(xs); max(xs) # length, min, and max value of xs
+
+#Indexing
+xs[1]                     # return item 1 of xs; the first index is always 0
+xs[0:2]                   # slice of xs from 1 to 3
+xs[0:3:2]                 # slice of xs from 0 to 3 with step 2
+xs[::2]                   # all items at even index
+xs[1::2]                  # all items at odd index
+xs.idex(x, 1, 3)          # index of the first occurence of x in xs that comes after the 1th and before 3th item.
+
+#Looping
+[f(x) for x in xs]                    # map function f(.) to each list element
+[f(idx, x) for idx, x in enumerate(xs)] # use enumerate(.) to loop through elements of a sequence with index
+```
+#### Generator and Yield
+
 #### Dictionary and Dictionary comprehension
 ```python
-{x: x for x in xs}                    #create dict from list
-[(k,dct[k]) for k in dct ]            #create list of tupple from dict
-for key, value in dict.iteritems():   #Looping through key and value
+{x: x for x in xs}                    # create dict from list
+[(k,dct[k]) for k in dct ]            # create list of tupple from dict
+for key, value in dict.iteritems():   # looping through key and value
 
 #Should use `bunch` for dict with attribute-style access. JSON and YAML-friendly
 import bunch
@@ -169,31 +251,6 @@ b.hello = 'world'
 b['hello'] += "!"
 ```
 
-#### String
-You should consider reading this awesome [`PyFormat`](https://pyformat.info/) about how to format string in Python 
-```python
-a = b = c = 'a string'                  # Declare 3 variables contain 'a string'
-d = a + c                               # String can be concanated with +
-''.join[a, b, c]                        # To concanate more than 2 strings, use ''.join(), much faster than +
-'%s %d %f' % ('one', 2, 3.0)            # Old style of how to format string.
-'{} {} {}'.format('one', 2, 3.0)        # New style of how to format string.
-f'{a} {b} {c}'                          # Short form to format string
-'{:>10} {:^10} {:10}'.format('aligned_left', 
-                      'center', 'aligned_right')
-'{:>6.2f}'.format('3.141592653589793')
-
-# A string can be substring just like a list or numpy:
-a[2:]; a[:4]; a[:-1]; 
-
-#Find index where a substring first begins in a string
-str1 = "this is string example....wow!!!";
-str2 = "exam";
-print str1.find(str2)
-```
-#### Tupple
-```python
-#TODO: tupple 
-```
 #### Enumeration
 ```python
 #Use enum34
@@ -206,6 +263,10 @@ print str1.find(str2)
 #### Dataframe with pandas
 ```python
 #TODO: Use pandas
+```
+## Control Flows
+```python
+#TODO: if, while, for
 ```
 ## Exceptions
 In Python, we usually prefer raising exceptions than returning error code, [`check here`](https://eli.thegreenplace.net/2008/08/21/robust-exception-handling/)
@@ -241,6 +302,10 @@ logger.exception("Alert, Alert!")
 ```
 
 ## Debugging
+Create a pbd breakpoint by putting this line wherever you like [`Read More`](https://stackoverflow.com/questions/1623039/python-debugging-tips):
+```python
+import pdb; pdb.set_trace();
+```
 I usually prefer to experiment codes in Jupyter. You can use [`ipdb`](http://frid.github.io/blog/2014/06/05/python-ipdb-cheatsheet/) to debug in Jupyter. To [`trigger`](http://devmartin.com/blog/2014/10/trigger-ipdb-within-ipython-notebook/) a debugging session in Jupyter, at the following line to your code at where you want to start debugging:
 
 ```python
@@ -265,8 +330,8 @@ os.chdir(dname)
 Or you can use [`pathlib`](http://pbpython.com/pathlib-intro.html), which is much more convient way to deal with path and files in Python.
 ```python
 from pathlib import Path
-in_file_1 = Path.cwd() / "in" / "input.xlsx"
-out_file_1 = Path.cwd() / "out" / "output.xlsx"
+in_file_1 = Path.cwd() / "in" / "input.xlsx"                    #No need for complicated os.path.join(.)
+[file for file in Path.cwd().iterdir() if not file.is_dir() ]   #Easy to iterate a directory (cwd in this case)
 ```
 #### Pretty Print
 Use `tabulate` to pretty print tabular data, and `termcolor` to colorize terminal output.
