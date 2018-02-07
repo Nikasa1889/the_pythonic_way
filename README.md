@@ -487,6 +487,7 @@ Useful shortcuts in VIM. Some I configured myself, some are default behavior of 
 
 Vim search pattern in all files: `:vimgrep /pattern/ ./**/*.py | cw`
 
+Note: To use `tmux-yank` while opening tmux through a SSH connection, you must have X forwarding enabled. Add -X option to ssh command, and make sure the ssh server has enabled X-forwarding.
 ## Microservices
 [12 factor](https://12factor.net/)
 
