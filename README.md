@@ -170,8 +170,8 @@ a,b,c = [1, 2, 3]                     # unpack list to multiple variables; numbe
 ## List comprehension
 [f(x) for x in xs]                    # map function f(.) to each element of xs. xs can be any sequence like list, string, tuple.
 [f(x) for x in xs if is_g(x)]         # filter with is_g(.) and map f(.) to each list element
-[f(x) for xs in xss for x in xs]      # map function f(.) to each element in a list_of_list
-
+[f(x) for xs in xss for x in xs]      # map function f(.) to each element in a list_of_list and flatten it
+[[f(x) for x in xs] for xs in xss]    # nested list comprehension, apply f(.) to each element of list_of_list, preserving structure
 [f(x, y) for (x, y) in zip(xs, ys)]   # map a function f(.,.) to a list of tupple
 
 ## Modify list
