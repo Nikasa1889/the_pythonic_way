@@ -9,6 +9,7 @@
 - [Environment Management](#environment-management) 
   - [Pip requirements](#pip-requirements) ([`pip`](https://pip.pypa.io/en/stable/))
   - [Conda environment management](#conda-environment-management) ([`conda`](https://conda.io/docs/))
+- [Pythonic Objects and Protocols]
 - [Data Structures](#data-structures)
   - [Tuple and Tuple Unpacking](#tuple-and-tuple-unpacking) ([`tuple`](https://docs.python.org/3.6/library/stdtypes.html#tuple))
   - [List and List comprehension](#list-and-list-comprehension)
@@ -19,7 +20,7 @@
   - [Matrix with numpy](#matrix-with-numpy) ([`numpy`](http://www.numpy.org/), [`memmap`](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.memmap.html), [`bcolz`](https://github.com/Blosc/bcolz))
   - [Dataframe with pandas](#dataframe-with-pandas) ([`pandas`](http://pandas.pydata.org/))
 - [Control Flows](#control-flows) ([`compound statements`](https://docs.python.org/3/reference/compound_stmts.html))
-- [Functions](#functions)
+- [Functional Programming](#functions)
 - [Modules](#modules)
 - [Exceptions](#exceptions) ([`throw exception`](https://eli.thegreenplace.net/2008/08/21/robust-exception-handling/))
 - [Debugging](#debugging) ([`pdb`](https://stackoverflow.com/questions/1623039/python-debugging-tips), [`ipdb`](http://devmartin.com/blog/2014/10/trigger-ipdb-within-ipython-notebook/))
