@@ -25,7 +25,7 @@
 - [Exceptions](#exceptions) ([`throw exception`](https://eli.thegreenplace.net/2008/08/21/robust-exception-handling/))
 - [Debugging](#debugging) ([`pdb`](https://stackoverflow.com/questions/1623039/python-debugging-tips), [`ipdb`](http://devmartin.com/blog/2014/10/trigger-ipdb-within-ipython-notebook/))
 - [IO Operations](#io-operations)
-  - [Csv, Json, and Yaml](#csv-json-and-yaml) ([`csv`](https://docs.python.org/2/library/csv.html), [`json`](https://docs.python.org/2/library/json.html), [`PyYAML`](http://pyyaml.org/wiki/PyYAMLDocumentation))
+  - [Csv, Json, and Yaml](#csv-json-and-yaml) ([`csv`](https://docs.python.org/2/library/csv.html), [`json`](https://docs.python.org/2/library/json.html), [`ujson`](https://pypi.org/project/ujson/), [`PyYAML`](http://pyyaml.org/wiki/PyYAMLDocumentation))
   - [Path operations](#path-operations) ([`pathlib`](http://pbpython.com/pathlib-intro.html), [`os.path`](https://docs.python.org/2/library/os.path.html))
   - [Pretty Print](#pretty-print) ([`tabulate`](https://pypi.python.org/pypi/tabulate), [`termcolor`](https://pypi.python.org/pypi/termcolor))
   - [Progress bar](#progress-bar) ([`tqdm`](https://pypi.python.org/pypi/tqdm))
