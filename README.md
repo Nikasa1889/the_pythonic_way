@@ -13,7 +13,7 @@
 - [Data Structures](#data-structures)
   - [Tuple and Tuple Unpacking](#tuple-and-tuple-unpacking) ([`tuple`](https://docs.python.org/3.6/library/stdtypes.html#tuple))
   - [List and List comprehension](#list-and-list-comprehension)
-  - [Deque, Synchronized Queue, Priority Queue](#other-list-related)
+  - [Deque, Synchronized Queue, Priority Queue, Counter](#other-list-related)
   - [String](#string) ([`f-strings`](https://www.python.org/dev/peps/pep-0498/), [string manipulations](https://docs.python.org/3.6/library/stdtypes.html#str), [regular expression](https://docs.python.org/3.6/library/re.html))
   - [Common Sequence Operations and Indexing](#common-sequence-operations-and-indexing)
   - [Dictionary and Dictionary comprehension](#dictionary-and-dictionary-comprehension) ([`bunch`](https://pypi.python.org/pypi/bunch))
