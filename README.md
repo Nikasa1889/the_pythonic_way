@@ -21,6 +21,7 @@
   - [Enumeration](#enumeration) ([`enum34`](https://pypi.python.org/pypi/enum34))
   - [Matrix with numpy](#matrix-with-numpy) ([`numpy`](http://www.numpy.org/), [`memmap`](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.memmap.html), [`bcolz`](https://github.com/Blosc/bcolz))
   - [Dataframe with pandas](#dataframe-with-pandas) ([`pandas`](http://pandas.pydata.org/))
+- [Numeric and Bit Operators](#numeric-and-bit-operators)
 - [Control Flows](#control-flows) ([`compound statements`](https://docs.python.org/3/reference/compound_stmts.html))
 - [Functional Programming](#functions)
 - [Modules](#modules)
